@@ -3,16 +3,20 @@ Text Analysis_Beer Recommendation
 
 
 # Introduction
-We will show you how to use integer programming with the Gurobi Python API to create an index fund that tracks the NASDAQ-100 as closely as possible while also keeping the number of component stocks in the fund to a minimum.
+The objective of this project is to create the building blocks of a crowdsourced recommendation system. This recommendation system should accept user inputs about desired attributes of a product and come up with 3 recommendations.
 
-Please kindly note that this blog is designed to be used for informational and educational purposes only and does not constitute investment or financial advice.
+Obtain reviews of craft beer from beeradvocate.com. We would suggest using the following link, which shows the top 250 beers sorted by ratings: 
+https://www.beeradvocate.com/beer/top-rated/
 
-We hope you enjoy this learning journey! Feel free to fork and play with the code for this article in this Github repo.
+The nice feature of the above link is that it is a single-page listing of 250 top-rated beers (avoids the pagination feature, which you need in cases where listings go on for many pages). The way beeradvocate.com organizes reviews is that it provides about 25 reviews per page. The output file should have 3 columns: product_name, product_review, and user_rating.
 
-
-# Approach
-This task will be mathematically formulated as an integer optimization problem. To demonstrate our method, we will use daily prices of the index and the component stocks of the NASDAQ-100 in 2019 and 2020, calculate the returns of the component stocks and the index in 2019 and 2020, as well as correlation matrix of stock returns, then obtain optimal solutions using 2019 price data, and evaluate the solutions using 2020 price data.
-
-
-# Blog
-For a detailed explanation and report of this module, please refer to our blog: https://medium.com/@pingzhang0108/how-to-construct-portfolio-to-track-broad-market-with-python-8900fcb6541a
+Next, we perform analysis according to the following steps:
+- Extract about 5-6k reviews
+- Specify 3 attributes in a product
+- Perform a similarity analysis using cosine similarity with the 3 attributes
+- For every review, perform a sentiment analysis
+- Recommend 3 products to the customer
+- Use word vectors technique to recommend
+- Compare bag-of-words and word vector approaches
+- Simply chose the 3 highest rated products while ignoring the similarity and feature sentiment scores
+- Analyze whether these products meet the requirements of the user looking for recommendations
